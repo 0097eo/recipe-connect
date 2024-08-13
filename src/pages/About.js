@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from './components/AuthContext'; 
+import { useAuth } from '../components/AuthContext'; 
 
 const About = () => {
   const navigate = useNavigate();
