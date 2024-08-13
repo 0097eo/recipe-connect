@@ -1,11 +1,11 @@
 import React from 'react';
 import './About.css';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from './path/to/AuthContext'; // Make sure to import useAuth
+import { useAuth } from './components/AuthContext'; 
 
 const About = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useAuth(); // Use the useAuth hook to get the login status
+  const { isLoggedIn } = useAuth(); 
 
   const handleSignUpClick = () => {
     navigate('/signup');
