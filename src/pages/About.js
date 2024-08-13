@@ -1,9 +1,11 @@
 import React from 'react';
 import './About.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from './path/to/AuthContext'; // Make sure to import useAuth
 
 const About = () => {
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth(); // Use the useAuth hook to get the login status
 
   const handleSignUpClick = () => {
     navigate('/signup');
@@ -23,10 +25,14 @@ const About = () => {
         <p>
           Whether you're a seasoned chef or a kitchen novice, there's a place for you here. Explore our diverse collection of recipes, from quick and easy weeknight meals to elaborate gourmet creations. Find inspiration for your next dinner party, or simply satisfy your cravings with comfort food classics.
         </p>
-        <p>Join the community today</p>
-        <div className="button-wrapper">
-          <button className="sign-up-button" onClick={handleSignUpClick}>SIGN UP</button>
-        </div>
+        {!isLoggedIn && ( 
+          <>
+            <p>Join the community today</p>
+            <div className="button-wrapper">
+              <button className="sign-up-button" onClick={handleSignUpClick}>SIGN UP</button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
